@@ -1,19 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0a08;
-  --surface: #111110;
-  --surface2: #1a1a17;
-  --border: #2a2a26;
-  --gold: #c9a84c;
-  --gold-light: #e8c76a;
-  --gold-dim: #7a6030;
-  --text: #e8e4d8;
-  --text-muted: #8a8678;
-  --text-dim: #555248;
-  --accent: #4a8fa8;
+  /* VNU-UMP: trắng, xanh dương, xanh lá */
+  --bg: #f4f8fb;
+  --surface: #ffffff;
+  --surface2: #eef4f9;
+  --border: #d8e4ef;
+  --border-strong: #b8cfe0;
+  --primary: #0066b3;
+  --primary-light: #3388c9;
+  --primary-dim: #004d8a;
+  --primary-muted: rgba(0, 102, 179, 0.08);
+  --primary-border: rgba(0, 102, 179, 0.22);
+  --green: #00a651;
+  --green-light: #33bd73;
+  --green-muted: rgba(0, 166, 81, 0.08);
+  --text: #1a2d42;
+  --text-muted: #4a6278;
+  --text-dim: #7a92a8;
+  --accent: #00a651;
+  --on-primary: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.96);
+  --shadow: 0 4px 24px rgba(0, 77, 138, 0.08);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,14 +33,14 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Crimson Pro', Georgia, serif;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
   font-size: 18px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Merriweather', Georgia, serif;
 }
 
 code, .mono {
@@ -38,11 +48,11 @@ code, .mono {
 }
 
 ::selection {
-  background: var(--gold);
-  color: var(--bg);
+  background: var(--primary);
+  color: var(--on-primary);
 }
 
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface2); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }

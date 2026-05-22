@@ -3,8 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Sinh Viên",
-  description: "Portfolio cá nhân",
+  title: "Portfolio — Sinh viên Y Dược",
+  description: "Portfolio cá nhân — Trường Đại học Y Dược, ĐHQG Hà Nội",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

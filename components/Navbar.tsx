@@ -30,11 +30,10 @@ export default function Navbar() {
         right: 0,
         zIndex: 100,
         transition: "all 0.4s ease",
-        background: scrolled
-          ? "rgba(10,10,8,0.95)"
-          : "transparent",
+        background: scrolled ? "var(--nav-bg)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid #2a2a26" : "1px solid transparent",
+        borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
+        boxShadow: scrolled ? "var(--shadow)" : "none",
       }}
     >
       <nav
@@ -52,15 +51,15 @@ export default function Navbar() {
         <Link
           href="/"
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Merriweather', serif",
             fontSize: "1.4rem",
             fontWeight: 700,
-            color: "#c9a84c",
+            color: "var(--primary)",
             textDecoration: "none",
             letterSpacing: "0.02em",
           }}
         >
-          Portfolio<span style={{ color: "#555248" }}>.</span>
+          Portfolio<span style={{ color: "var(--green)" }}>.</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -86,19 +85,19 @@ export default function Navbar() {
                   fontSize: "0.78rem",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color: isActive ? "#c9a84c" : "#8a8678",
+                  color: isActive ? "var(--primary)" : "var(--text-muted)",
                   textDecoration: "none",
                   transition: "color 0.2s",
-                  borderBottom: isActive ? "1px solid #c9a84c" : "1px solid transparent",
+                  borderBottom: isActive ? "2px solid var(--primary)" : "2px solid transparent",
                   paddingBottom: "2px",
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive)
-                    (e.target as HTMLElement).style.color = "#e8e4d8";
+                    (e.target as HTMLElement).style.color = "var(--primary)";
                 }}
                 onMouseLeave={(e) => {
                   if (!isActive)
-                    (e.target as HTMLElement).style.color = "#8a8678";
+                    (e.target as HTMLElement).style.color = "var(--text-muted)";
                 }}
               >
                 {item.label}
@@ -129,7 +128,7 @@ export default function Navbar() {
                 display: "block",
                 width: 24,
                 height: 1.5,
-                background: "#c9a84c",
+                background: "var(--primary)",
                 transition: "all 0.3s",
                 transform:
                   menuOpen && i === 0
@@ -149,8 +148,9 @@ export default function Navbar() {
       {menuOpen && (
         <div
           style={{
-            background: "rgba(10,10,8,0.98)",
-            borderTop: "1px solid #2a2a26",
+            background: "var(--nav-bg)",
+            borderTop: "1px solid var(--border)",
+            boxShadow: "var(--shadow)",
             padding: "1.5rem 2rem",
             display: "flex",
             flexDirection: "column",
@@ -167,7 +167,7 @@ export default function Navbar() {
                 fontSize: "0.85rem",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "#8a8678",
+                color: "var(--text-muted)",
                 textDecoration: "none",
               }}
             >

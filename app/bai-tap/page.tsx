@@ -7,17 +7,17 @@ export default function BaiTapPage() {
     <div style={{ background: "var(--bg)", minHeight: "100vh", paddingTop: "72px" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "4rem 2rem" }}>
         {/* Header */}
-        <div style={{ marginBottom: "5rem", borderBottom: "1px solid #1a1a17", paddingBottom: "3rem" }}>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#c9a84c", marginBottom: "1.5rem", display: "flex", alignItems: "center", gap: "1rem" }}>
-            <span style={{ width: 24, height: 1, background: "#c9a84c", display: "inline-block" }} />
+        <div style={{ marginBottom: "5rem", borderBottom: "1px solid var(--border)", paddingBottom: "3rem" }}>
+          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--primary)", marginBottom: "1.5rem", display: "flex", alignItems: "center", gap: "1rem" }}>
+            <span style={{ width: 24, height: 1, background: "var(--primary)", display: "inline-block" }} />
             Sản phẩm &amp; Học thuật
           </div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1rem" }}>
-            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 900, color: "#e8e4d8", lineHeight: 1.05 }}>
+            <h1 style={{ fontFamily: "'Merriweather', serif", fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 900, color: "var(--text)", lineHeight: 1.05 }}>
               Bài tập{" "}
-              <em style={{ color: "#c9a84c" }}>&amp; Dự án</em>
+              <em style={{ color: "var(--green)" }}>&amp; Dự án</em>
             </h1>
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#555248", letterSpacing: "0.1em" }}>
+            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "var(--text-dim)", letterSpacing: "0.1em" }}>
               {assignments.length} bài tập
             </span>
           </div>
@@ -29,7 +29,7 @@ export default function BaiTapPage() {
             <article
               key={assignment.id}
               style={{
-                borderBottom: "1px solid #1a1a17",
+                borderBottom: "1px solid var(--border)",
                 padding: "3rem 0",
                 display: "grid",
                 gridTemplateColumns: "60px 1fr auto",
@@ -40,7 +40,7 @@ export default function BaiTapPage() {
               className="assignment-row"
             >
               {/* Number */}
-              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.5rem", fontWeight: 300, color: "#2a2a26", lineHeight: 1, paddingTop: "0.3rem" }}>
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.5rem", fontWeight: 300, color: "var(--border-strong)", lineHeight: 1, paddingTop: "0.3rem" }}>
                 {String(index + 1).padStart(2, "0")}
               </div>
 
@@ -48,28 +48,28 @@ export default function BaiTapPage() {
               <div>
                 {/* Meta */}
                 <div style={{ display: "flex", gap: "1.5rem", marginBottom: "1rem", flexWrap: "wrap" }}>
-                  <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#c9a84c", background: "rgba(201,168,76,0.08)", padding: "0.25rem 0.75rem", border: "1px solid rgba(201,168,76,0.2)" }}>
+                  <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--primary)", background: "var(--primary-muted)", padding: "0.25rem 0.75rem", border: "1px solid var(--primary-border)" }}>
                     {assignment.subject}
                   </span>
                   {assignment.tools.slice(0, 3).map((tool) => (
-                    <span key={tool} style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "#555248" }}>
+                    <span key={tool} style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-dim)" }}>
                       {tool}
                     </span>
                   ))}
                   {assignment.tools.length > 3 && (
-                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#2a2a26" }}>
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "var(--border-strong)" }}>
                       +{assignment.tools.length - 3}
                     </span>
                   )}
                 </div>
 
                 {/* Title */}
-                <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#e8e4d8", lineHeight: 1.2, marginBottom: "1rem" }}>
+                <h2 style={{ fontFamily: "'Merriweather', serif", fontSize: "1.6rem", fontWeight: 700, color: "var(--text)", lineHeight: 1.2, marginBottom: "1rem" }}>
                   {assignment.title}
                 </h2>
 
                 {/* Summary */}
-                <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1rem", color: "#555248", lineHeight: 1.7, marginBottom: "1.5rem", maxWidth: "600px" }}>
+                <p style={{ fontFamily: "'Source Sans 3', serif", fontSize: "1rem", color: "var(--text-dim)", lineHeight: 1.7, marginBottom: "1.5rem", maxWidth: "600px" }}>
                   {assignment.summary}
                 </p>
 
@@ -82,10 +82,10 @@ export default function BaiTapPage() {
                         fontFamily: "'DM Mono', monospace",
                         fontSize: "0.65rem",
                         letterSpacing: "0.06em",
-                        color: "#555248",
-                        background: "#111110",
+                        color: "var(--text-dim)",
+                        background: "var(--surface2)",
                         padding: "0.3rem 0.75rem",
-                        border: "1px solid #1a1a17",
+                        border: "1px solid var(--border)",
                       }}
                     >
                       {section.title}
@@ -103,8 +103,8 @@ export default function BaiTapPage() {
                     fontSize: "0.72rem",
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
-                    color: "#0a0a08",
-                    background: "#c9a84c",
+                    color: "var(--on-primary)",
+                    background: "var(--primary)",
                     padding: "0.75rem 1.5rem",
                     textDecoration: "none",
                     display: "flex",
@@ -113,8 +113,8 @@ export default function BaiTapPage() {
                     whiteSpace: "nowrap",
                     transition: "background 0.2s",
                   }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#e8c76a"; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "#c9a84c"; }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--primary-light)"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--primary)"; }}
                 >
                   Xem chi tiết + PDF
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
