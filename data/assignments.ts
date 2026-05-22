@@ -52,8 +52,8 @@ export const assignments: Assignment[] = [
           "Website hoàn thiện với 15+ trang, hỗ trợ 50+ sản phẩm. Tốc độ tải trang đạt điểm Lighthouse 90+. Giao diện responsive hoàn toàn. Hệ thống xử lý được ~100 đơn hàng đồng thời trong môi trường test. Nhận xét từ giảng viên: 'Thiết kế chuyên nghiệp, code sạch, có tư duy hệ thống tốt.'",
       },
     ],
-    driveLink: "https://drive.google.com/file/d/example1",
-    pdfEmbedLink: "https://drive.google.com/file/d/1BxiMVs0XRA5nFMdKvBdBZjgmUFqHdgGc/preview",
+    driveLink: "https://drive.google.com/file/d/1yEcx8SpCeokiL0gaA1U3P_aGxP-0qvw_/view",
+    pdfEmbedLink: "https://drive.google.com/file/d/1yEcx8SpCeokiL0gaA1U3P_aGxP-0qvw_/preview",
   },
   {
     id: "2",
