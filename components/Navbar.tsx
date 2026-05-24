@@ -1,11 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+
+const SCHOOL_BANNER = "/images/VNU-banner.png";
 
 const navItems = [
   { label: "Giới thiệu", href: "/#gioi-thieu" },
-  { label: "Học tập & Kỹ năng", href: "/#ky-nang" },
+  { label: "Học tập", href: "/#ky-nang" },
   { label: "Bài tập", href: "/bai-tap" },
   { label: "Liên hệ", href: "/#lien-he" },
 ];
@@ -17,22 +20,25 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <header
+      className="site-header"
       style={{
         position: "fixed",
         top: 0,
         left: 0,
         right: 0,
         zIndex: 100,
-        transition: "all 0.4s ease",
-        background: scrolled ? "var(--nav-bg)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
+        transition: "box-shadow 0.4s ease, border-color 0.4s ease",
+        background: "var(--nav-bg)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+        borderBottom: "1px solid var(--border)",
         boxShadow: scrolled ? "var(--shadow)" : "none",
       }}
     >
@@ -47,19 +53,25 @@ export default function Navbar() {
           justifyContent: "space-between",
         }}
       >
-        {/* Logo */}
+        {/* Banner trường */}
         <Link
           href="/"
           style={{
-            fontFamily: "'Merriweather', serif",
-            fontSize: "1.4rem",
-            fontWeight: 700,
-            color: "var(--primary)",
+            display: "flex",
+            alignItems: "center",
             textDecoration: "none",
-            letterSpacing: "0.02em",
+            flexShrink: 0,
           }}
+          aria-label="Trang chủ — Trường Đại học Y Dược, ĐHQG Hà Nội"
         >
-          Portfolio<span style={{ color: "var(--green)" }}>.</span>
+          <Image
+            src={SCHOOL_BANNER}
+            alt="Trường Đại học Y Dược — ĐHQG Hà Nội"
+            width={220}
+            height={44}
+            priority
+            style={{ height: 44, width: "auto", maxWidth: "min(220px, 55vw)", objectFit: "contain" }}
+          />
         </Link>
 
         {/* Desktop Nav */}

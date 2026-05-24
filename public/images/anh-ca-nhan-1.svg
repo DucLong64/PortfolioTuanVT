@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 533" role="img" aria-label="¢nh cá nhân 1">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8f2fa"/>
+      <stop offset="100%" stop-color="#e6f7ef"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="533" fill="url(#bg1)"/>
+  <circle cx="200" cy="168" r="72" fill="#b8cfe0"/>
+  <ellipse cx="200" cy="400" rx="120" ry="140" fill="#b8cfe0"/>
+  <text x="200" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#7a92a8">Thay b±ng £nh cça b¡n</text>
+</svg>

@@ -75,22 +75,43 @@ export default function BaiTapPage() {
 
                 {/* Sections list */}
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-                  {assignment.sections.map((section, i) => (
-                    <span
-                      key={i}
-                      style={{
-                        fontFamily: "'DM Mono', monospace",
-                        fontSize: "0.65rem",
-                        letterSpacing: "0.06em",
-                        color: "var(--text-dim)",
-                        background: "var(--surface2)",
-                        padding: "0.3rem 0.75rem",
-                        border: "1px solid var(--border)",
-                      }}
-                    >
-                      {section.title}
-                    </span>
-                  ))}
+                  {assignment.sections.flatMap((section) =>
+                    section.steps?.length
+                      ? section.steps.map((step, stepIndex) => (
+                          <span
+                            key={`${section.title}-${stepIndex}`}
+                            style={{
+                              fontFamily: "'DM Mono', monospace",
+                              fontSize: "0.65rem",
+                              letterSpacing: "0.06em",
+                              color: "var(--text-dim)",
+                              background: "var(--surface2)",
+                              padding: "0.3rem 0.75rem",
+                              border: "1px solid var(--border)",
+                            }}
+                          >
+                            {String(stepIndex + 1).padStart(2, "0")}: {step.title}
+                          </span>
+                        ))
+                      : section.title
+                        ? [
+                            <span
+                              key={section.title}
+                              style={{
+                                fontFamily: "'DM Mono', monospace",
+                                fontSize: "0.65rem",
+                                letterSpacing: "0.06em",
+                                color: "var(--text-dim)",
+                                background: "var(--surface2)",
+                                padding: "0.3rem 0.75rem",
+                                border: "1px solid var(--border)",
+                              }}
+                            >
+                              {section.title}
+                            </span>,
+                          ]
+                        : []
+                  )}
                 </div>
               </div>
 

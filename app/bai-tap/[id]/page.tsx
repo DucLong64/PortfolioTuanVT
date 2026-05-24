@@ -1,13 +1,12 @@
 "use client";
-import { useState, use } from "react";
+import { use } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { assignments } from "@/data/assignments";
+import AssignmentSections from "@/components/AssignmentSections";
 import { notFound } from "next/navigation";
 
 export default function BaiTapDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
-  const router = useRouter();
   const index = assignments.findIndex((a) => a.id === id);
 
   if (index === -1) notFound();
@@ -16,8 +15,6 @@ export default function BaiTapDetailPage({ params }: { params: Promise<{ id: str
   const prev = index > 0 ? assignments[index - 1] : null;
   const next = index < assignments.length - 1 ? assignments[index + 1] : null;
   const isLast = index === assignments.length - 1;
-
-  const [openSection, setOpenSection] = useState<number | null>(0);
 
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh", paddingTop: "72px" }}>
@@ -81,103 +78,18 @@ export default function BaiTapDetailPage({ params }: { params: Promise<{ id: str
           <div style={{ background: "var(--surface)", padding: "0" }}>
             <div style={{ padding: "1.5rem 2rem", borderBottom: "1px solid var(--border)" }}>
               <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-dim)" }}>
-                Nội dung chính
+                Nội dung thực hành
               </span>
             </div>
 
-            {assignment.sections.map((section, i) => (
-              <div key={i} style={{ borderBottom: "1px solid var(--border)" }}>
-                {/* Section header - clickable */}
-                <button
-                  onClick={() => setOpenSection(openSection === i ? null : i)}
-                  style={{
-                    width: "100%",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    padding: "1.2rem 2rem",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    gap: "1rem",
-                    textAlign: "left",
-                    transition: "background 0.2s",
-                    backgroundColor: openSection === i ? "var(--surface2)" : "transparent",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (openSection !== i)
-                      (e.currentTarget as HTMLElement).style.backgroundColor = "var(--surface2)";
-                  }}
-                  onMouseLeave={(e) => {
-                    if (openSection !== i)
-                      (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: "'Source Sans 3', serif",
-                      fontSize: "1rem",
-                      color: openSection === i ? "var(--text)" : "var(--text-muted)",
-                      fontWeight: openSection === i ? 600 : 400,
-                      transition: "color 0.2s",
-                      lineHeight: 1.4,
-                    }}
-                  >
-                    {section.title}
-                  </span>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    style={{
-                      flexShrink: 0,
-                      transition: "transform 0.3s",
-                      transform: openSection === i ? "rotate(180deg)" : "rotate(0deg)",
-                      color: openSection === i ? "var(--primary)" : "var(--text-dim)",
-                    }}
-                  >
-                    <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-
-                {/* Section detail - expandable */}
-                <div
-                  style={{
-                    maxHeight: openSection === i ? "400px" : "0",
-                    overflow: "hidden",
-                    transition: "max-height 0.4s ease",
-                  }}
-                >
-                  <div
-                    style={{
-                      padding: "0 2rem 1.5rem 2rem",
-                      borderTop: "1px solid var(--border)",
-                      paddingTop: "1.2rem",
-                      background: "var(--surface2)",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontFamily: "'Source Sans 3', serif",
-                        fontSize: "0.95rem",
-                        color: "var(--text-muted)",
-                        lineHeight: 1.8,
-                      }}
-                    >
-                      {section.detail}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+            <AssignmentSections sections={assignment.sections} />
           </div>
 
           {/* Column 2: PDF Preview */}
           <div style={{ background: "var(--surface)", display: "flex", flexDirection: "column" }}>
             <div style={{ padding: "1.5rem 2rem", borderBottom: "1px solid var(--border)" }}>
               <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-dim)" }}>
-                Xem trước tài liệu
+                Báo cáo
               </span>
             </div>
             <div style={{ flex: 1, position: "relative", minHeight: "600px" }}>
