@@ -65,9 +65,19 @@ export default function HomePage() {
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
       {/* Hero */}
-      <section id="gioi-thieu" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", paddingTop: "72px" }}>
-        <div style={{ position: "absolute", top: "10%", right: "-5%", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(0,102,179,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: "5%", left: "-10%", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(0,166,81,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
+      <section
+        id="gioi-thieu"
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          position: "relative",
+          overflow: "hidden",
+          paddingTop: "72px",
+          backgroundImage:
+            "linear-gradient(112deg, rgb(255, 255, 255), rgb(255, 255, 255) 39%, rgba(231, 244, 240, 0.82) 40%, rgba(244, 248, 250, 0.96)), linear-gradient(rgb(248, 251, 252), rgb(237, 244, 246))",
+        }}
+      >
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "4rem 2rem", width: "100%" }} className="hero-grid">
           <div>
             {/* <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--primary)", marginBottom: "2rem", display: "flex", alignItems: "center", gap: "1rem" }}>
