@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const SCHOOL_BANNER = "/images/VNU-banner.png";
+const SCHOOL_BANNER = "/images/logo.svg";
 
 const navItems = [
   { label: "Giới thiệu", href: "/#gioi-thieu" },
